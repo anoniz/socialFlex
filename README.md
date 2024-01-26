@@ -52,6 +52,6 @@ This will start your Node.js server.
 Access the API:
 
 Open your web browser or a tool like Postman
-and access your API at http://localhost:3000 or the specified port in your .env file.
+and access your API at http://localhost:5000 or the specified port in your .env file.
 
 # For any query Email Me at "abdullatifnizamani517@gmail.com"
