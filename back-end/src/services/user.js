@@ -6,12 +6,13 @@ const bcrypt = require('bcrypt');
 
 const createUser = async(user) => {
   try {
+      console.log(user)
       const createdUser = await User.create(user);
       if(!createdUser) return {error: {message: "Something went wrong, try again", code: 500}};
       return {createdUser: createdUser};
   } catch (error) {
       console.log(error);
-      return {error: {message: "Something went wrong, try again", code: 500}};
+      return {error: {message: "Something went wrong, ttry again", code: 500}};
   }
 };
 

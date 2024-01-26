@@ -40,8 +40,8 @@ const User = db.define('User', {
     allowNull: false,
     validate: {
       // len: {
-      //   args: [8,16],
-      //   msg: ' 8 > password < 16'
+      //   args: [7,16],
+      //   msg: ' 7 > password < 16'
       // },
       notNull: {
         msg: 'password is required'
@@ -50,49 +50,49 @@ const User = db.define('User', {
   },
   gender: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notNull: {
-        msg: 'gender is required'
-      }
-    },
+    // allowNull: true,
+    // validate: {
+    //   notNull: {
+    //     msg: 'gender is required'
+    //   }
+    // },
     set(value) {
       this.setDataValue('gender',value.toUpperCase());
     }
   },
   country: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notNull: {
-        msg: 'country name is required'
-      }
-    },
+    // allowNull: false,
+    // validate: {
+    //   notNull: {
+    //     msg: 'country name is required'
+    //   }
+    // },
     set(value) {
       this.setDataValue('country',value.toUpperCase());
     }
   },
   city: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notNull: {
-        msg: 'city name is required'
-      }
-    },
+    // allowNull: false,
+    // validate: {
+    //   notNull: {
+    //     msg: 'city name is required'
+    //   }
+    // },
     set(value) {
       this.setDataValue('city',value.toLowerCase());
     }
   },
   dob: {
     type: DataTypes.DATEONLY,
-    allowNull:false,
-    validate: {
-      isDate: {
-        args:true,
-        msg: 'provide date in format 2002-11-05'
-      }
-    },
+    // allowNull:false,
+    // validate: {
+    //   isDate: {
+    //     args:true,
+    //     msg: 'provide date in format 2002-11-05'
+    //   }
+    // },
     set(value) {
       const age = getAge(value);
       if(age < 18 || age > 90 ) {

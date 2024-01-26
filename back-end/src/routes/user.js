@@ -1,7 +1,5 @@
 const router = require('express').Router();
 const  { auth } = require('../middlewares/index');
-const  { avatarUpload } = require('../middlewares/index');
-const { upload , errorMiddleware } = avatarUpload;
 //const multer = require('multer');
 //const sharp = require('sharp');
 const { userController } = require('../controllers');
