@@ -38,7 +38,7 @@ const signup = async (req,res) => {
         if(resp.error) { 
             return res.status(resp.error.code).send(resp.error.message);
         }
-        const password_hash = await bcrypt.hash(req.body.password,8);
+        const password_hash = req.body.password;
         //  frontend testing only
          req.body = {
             ...req.body,

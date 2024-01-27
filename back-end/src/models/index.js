@@ -1,5 +1,5 @@
 const {User,UserPost,UserComment,
-      postLike,commentLike,
+      PostLike,CommentLike,
     PostImage, PostVideo} = require('./associations');
 
 
@@ -7,8 +7,8 @@ module.exports = {
     User,
     UserPost,
     UserComment,
-    postLike,
-    commentLike,
+    PostLike,
+    CommentLike,
     PostImage,
     PostVideo
 }

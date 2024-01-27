@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const  { auth } = require('../middlewares/index');
+const { signupValidation, handleValidationErrors } = require('../middlewares/index').errorMiddleware;
 //const multer = require('multer');
 //const sharp = require('sharp');
 const { userController } = require('../controllers');
 
-router.post('/api/signup', userController.signup);
-router.post('/api/login',auth, userController.login);
+router.post('/api/signup',signupValidation,handleValidationErrors, userController.signup);
+router.post('/api/login', userController.login);
 router.post('/logout-all',userController.logoutAll); // see later
 router.post('/api/logout',userController.logout);
 router.post('/me/change-password',auth,userController.changePassword);

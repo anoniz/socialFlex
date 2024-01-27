@@ -12,6 +12,17 @@ const createUser = async(user) => {
       return {createdUser: createdUser};
   } catch (error) {
       console.log(error);
+      // check if error is coming from sequelize validations
+      if (error.name === 'SequelizeValidationError') {
+        const validationErrors = error.errors.map((validationError) => ({
+          //field: validationError.path, // The field that failed validation
+          message: validationError.message, // The error message
+          value: validationError.value, // The value that failed validation
+        }));
+        
+        return {error:{message:validationErrors, code:400}}
+      //  return res.status(400).json({ errors: validationErrors });
+      }
       return {error: {message: "Something went wrong, ttry again", code: 500}};
   }
 };

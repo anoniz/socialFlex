@@ -39,10 +39,10 @@ const User = db.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      // len: {
-      //   args: [7,16],
-      //   msg: ' 7 > password < 16'
-      // },
+      len: {
+        args: [8,16],
+        msg: ' password should be between 8 and 16'
+      },
       notNull: {
         msg: 'password is required'
       },
@@ -118,8 +118,13 @@ const User = db.define('User', {
      type: DataTypes.BOOLEAN,
      defaultValue: false, 
   }
-}, {
-  // Other model options go here
+}, 
+{
+  hooks: {
+    beforeCreate: async (user) => {
+      user.password_hash = await bcrypt.hash(user.password_hash,9);
+    }
+  },
   schema: "user_schema"
 });
 
