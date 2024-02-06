@@ -6,7 +6,7 @@ const PostVideo = db.define('PostVideo', {
         type: DataTypes.STRING,
         primaryKey: true
     },
-    url : {
+    fileKey : {
         type: DataTypes.STRING,
         allowNull: false
     },

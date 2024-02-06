@@ -6,12 +6,12 @@ const PostImage = db.define('PostImage', {
         type: DataTypes.STRING,
         primaryKey: true
     },
-    url : {
+    fileKey : {
         type: DataTypes.STRING,
         allowNull: false
     },
     fileName: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING, 
         allowNull:false
     },
 }, {

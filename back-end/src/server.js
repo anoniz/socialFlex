@@ -16,6 +16,8 @@ app.get("/", (req, res) => {
 app.use('/',userRouter); 
 app.use('/',userPostRouter);  
 
+// Clear Sequelize model cache
+
 sequelize.sync({alter:true}).then(connection => {
     console.log("Database connected successfuly");
     app.listen(port, () => {

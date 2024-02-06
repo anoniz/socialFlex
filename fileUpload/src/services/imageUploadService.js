@@ -21,7 +21,8 @@ const uploadImages = async (files,bucketName,folderName) => {
           const uploadResult = await s3.upload(params).promise();
           uploadedFiles.push({
             url: uploadResult.Location,
-            key: uploadResult.Key
+            key: uploadResult.Key,
+            fileName : file.originalname
           });
       
           console.log(`File ${file.originalname} processed and uploaded successfully to ${folderName} folder.`);
@@ -37,5 +38,5 @@ const uploadImages = async (files,bucketName,folderName) => {
 }
 
 module.exports = {
-    uploadImages,
+    uploadImages, 
 }
