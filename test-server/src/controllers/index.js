@@ -1,8 +1,6 @@
-const postImageController = require('./postImageController');
-
-
+const postController = require('./postController');
 
 
 module.exports = {
-    postImageController,
+    postController
 }

@@ -6,6 +6,10 @@ const PostVideo = db.define('PostVideo', {
         type: DataTypes.STRING,
         primaryKey: true
     },
+    url: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     fileKey : {
         type: DataTypes.STRING,
         allowNull: false
@@ -13,6 +17,14 @@ const PostVideo = db.define('PostVideo', {
     fileName: {
         type: DataTypes.STRING,
         allowNull:false
+    },
+    originalFileName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    fileSize: {
+       type: DataTypes.BIGINT,
+       allowNull: false 
     },
     duration: {
         type: DataTypes.INTEGER,    // total minutes.

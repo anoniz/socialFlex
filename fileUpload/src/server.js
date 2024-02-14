@@ -1,5 +1,4 @@
 const express = require('express');
-const sequelize = require('./db/sequelize');
 const { imageRouter, videoRouter } = require('./routes/index');
 const port = process.env.PORT || 5001;
 const app = express();
@@ -15,15 +14,6 @@ app.get('/', (req,res) => {
 app.use('/',imageRouter);
 app.use('/',videoRouter);
 
-
-sequelize.sync({alter:true}).then(connection => {
-    console.log("database connected success");
-    app.listen(port, () => {
-        console.log(`Server Started on port ${port}`);
-    })
-}).catch(err => {
-    console.log("unable to conncect database ");
-    console.log("Can't Start Server ");
-    console.log(err);
+app.listen(port, () => {
+    console.log(`listening on port ${port}`)
 })
-

@@ -4,6 +4,7 @@ const mailService = require('./mail');
 const postService = require('./userPosts');
 const commentService = require('./userComments');
 const likeService = require('./userLikes');
+const postImageService = require('./userPostImage');
 
 
 
@@ -13,5 +14,6 @@ module.exports = {
     mailService,
     postService,
     commentService,
-    likeService
+    likeService,
+    postImageService
 }

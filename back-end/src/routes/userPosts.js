@@ -3,7 +3,7 @@ const { auth } = require('../middlewares/index')
 const { postController, commentController, likeController } = require('../controllers/index');
 
 
-router.post('/api/posts',auth, postController.createPost);
+router.post('/api/posts', postController.createPost);
 // Update a Post: PUT /api/posts/:postId
 // Delete a Post: DELETE /api/posts/:postId
 

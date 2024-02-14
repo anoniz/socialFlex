@@ -6,6 +6,10 @@ const PostImage = db.define('PostImage', {
         type: DataTypes.STRING,
         primaryKey: true
     },
+    url: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     fileKey : {
         type: DataTypes.STRING,
         allowNull: false
@@ -14,6 +18,14 @@ const PostImage = db.define('PostImage', {
         type: DataTypes.STRING, 
         allowNull:false
     },
+    originalFileName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    fileSize: {
+       type: DataTypes.BIGINT,
+       allowNull: false 
+    }
 }, {
     schema: "post_schema"
 });

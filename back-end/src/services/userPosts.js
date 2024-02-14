@@ -3,7 +3,7 @@ const { UserPost } = require('../models/index');
 
 const createPost = async (post) => {
      try {
-        const createdPost = await UserPost.create(post);
+        const createdPost = await UserPost.create(post); 
         if(!createdPost) {
             return {error:{message:"something went wrong try again", code: 500}}
         }
@@ -39,9 +39,6 @@ const getAllMyPosts = async (userId) => {
       return {error:{message:"something went wrong try again",code:500}}
     }
 };
-
-
-
 
 
 

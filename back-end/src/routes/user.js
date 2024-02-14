@@ -12,14 +12,12 @@ router.post('/api/logout',userController.logout);
 router.post('/me/change-password',auth,userController.changePassword);
 router.post('/api/forgot-password',userController.sendForgotPasswordCode);
 
-
+// get user by email
+// router.get('/api/me',userController.getProfileByEmail);
 router.get('/confirmation/:token',userController.verifyEmail);
 router.get('/forgot-password/:code',userController.recieveForgotPasswordCode) // for getting code from url and verifying that code exists in db.
-// router.get('/me/:id',userController.getProfile);
-router.get('/:id',);
-// router.get('/me/avatar/:id',userController.getAvatar);
-router.patch('/me',);
-router.delete('/me',);
+router.get('/api/me/:id',userController.getProfile);
+
 
 // Sign Up: POST /api/signup
 // Log In: POST /api/login

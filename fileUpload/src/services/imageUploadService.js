@@ -5,6 +5,7 @@ const uploadImages = async (files,bucketName,folderName) => {
     // returns the url array of images url. 
     // create file urls on s3 and save that to db.
      const uploadedFiles = [];
+     console.log("files = ",files);
         try {
           for (const file of files) {
              // Append current date to the original file name
@@ -21,12 +22,12 @@ const uploadImages = async (files,bucketName,folderName) => {
           const uploadResult = await s3.upload(params).promise();
           uploadedFiles.push({
             url: uploadResult.Location,
-            key: uploadResult.Key,
-            fileName : file.originalname
+            fileKey: uploadResult.Key,
+            fileName: newFileName,
+            originalFileName: file.originalname,
+            fileSize: file.size
           });
-      
           console.log(`File ${file.originalname} processed and uploaded successfully to ${folderName} folder.`);
-          
         }
         return uploadedFiles;
 

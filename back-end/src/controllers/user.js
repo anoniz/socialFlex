@@ -211,19 +211,32 @@ const recieveForgotPasswordCode = async (req,res) => {
 const getProfile = async (req,res) => {
     //  const p = req.user;
     //  return res.send(p);
-    console.log("okkk")
+    console.log("okkk");
     console.log(req.params);
     try {
-         const user = await User.findById(req.params.id);
+         const user = await User.findByPk(req.params.id);
          if(!user) {
-            return res.send("User Doesnt exist");
+            return res.status(404).json({"message":"User Doesnt exist"});
          }
-         return res.send(user);
+         return res.status(200).json({"message": "user found", "user":user});
     } catch(e) {
         console.log("something went with getProfile no auth");
-        return res.send("something went with getProfile no auth");
+        return res.status(500).json({"message": "something went with getProfile no auth"});
     }   
 } 
+
+const getProfileByEmail = async (req,res) => {
+    try {
+         const user = await User.findOne({where:{email:req.body.email}});
+         if(!user) {
+            return res.status(404).json({"message": "user not found"});
+         }
+         return res.status(200).json({"message": "user found", "user":user});
+    } catch(err) {
+        console.log(err);
+        return res.status(500).json({"message": "Internal server error."})
+    }
+}
 
 
 module.exports = {
@@ -235,5 +248,6 @@ module.exports = {
     sendForgotPasswordCode,
     recieveForgotPasswordCode,
     getProfile,
-    verifyEmail
+    verifyEmail,
+    getProfileByEmail
 }

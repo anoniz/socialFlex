@@ -1,15 +1,6 @@
-const imageRouter = require('./postImages');
-const videoRouter = require('./postVideos');
+const postRouter = require('./post');
 
 
-
-
-
-module.exports = {
-    imageRouter,
-    videoRouter
+module.exports = { 
+    postRouter
 }
-
-
-
-

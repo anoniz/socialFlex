@@ -21,6 +21,8 @@ const CommentLike = db.define('CommentLike', {
     schema: "post_schema"
 });
 
+
+
 module.exports = {
     PostLike,
     CommentLike

@@ -1,6 +1,5 @@
-const { postService } = require('../services/index');
+const { postService,postImageService } = require('../services/index');
 const { v4: uuidv4 } = require('uuid');
-
 
 // these all routes are protected and going through the auth middle where
 // so the contain req.token and req.user 
@@ -14,7 +13,12 @@ const createPost = async (req,res) => {
         post_text: post_text,
         UserId: req.user.id
       }
-      const resp = await postService.createPost(post);
+      const images = req.body.files.images; // get image details from file upload service
+      for(const image of images) {
+          image.id = uuidv4().toString();
+          image.PostId = post.id
+      }
+      const resp = await Promise.all([postService.createPost(post),postImageService.createPostImages(images)]);
       if(resp.error) {
          return res.status(resp.error.code).send(resp.error.message);
       }
