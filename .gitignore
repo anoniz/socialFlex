@@ -1,7 +1,7 @@
-# back-end/node_modules
-# back-end/dev.env
-# fileUpload/node_modules
-# fileUpload/dev.env
-# test-server/dev.env
-# test-server/node_modules
+back-end/node_modules
+back-end/dev.env
+fileUpload/node_modules
+fileUpload/dev.env
+test-server/dev.env
+test-server/node_modules
 
